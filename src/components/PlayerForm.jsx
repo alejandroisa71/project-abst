@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const PlayerForm = () => {
   const [player, setPlayer] = useState({
@@ -8,7 +9,9 @@ const PlayerForm = () => {
     club: "",
     height: 0,
   });
-  const form = useRef(null)
+
+  const form = useRef(null);
+  const router = useRouter();
 
   const handleChange = (e) => {
     setPlayer({
@@ -23,7 +26,8 @@ const PlayerForm = () => {
 
     const res = await axios.post("/api/players", player);
     console.log(res);
-    form.current.reset()
+    form.current.reset();
+    router.push("/");
   };
 
   return (
@@ -35,6 +39,7 @@ const PlayerForm = () => {
       <label className="flex flex-col text-gray-700 text-sm font-bold mb-2">
         Nombre
         <input
+          autoFocus
           type="text"
           placeholder="Nombre"
           name="name"
