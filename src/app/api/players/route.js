@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { conn } from "@/libs/mysql";
+import { conn } from "../../../libs/mysql";
+
 
 export const GET = async () => {
   try {
