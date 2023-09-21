@@ -22,7 +22,10 @@ const Buttons = ({ playerId }) => {
       >
         Borrar
       </button>
-      <button className="text-white bg-gray-700 hover:bg-gray-500 py-2 px-3 rounded">
+      <button
+        className="text-white bg-gray-700 hover:bg-gray-500 py-2 px-3 rounded"
+        onClick={() => router.push(`/players/edit/${playerId}`)}
+      >
         Editar
       </button>
     </div>
